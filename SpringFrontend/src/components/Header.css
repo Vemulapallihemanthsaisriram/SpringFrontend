@@ -1,0 +1,304 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Custom Properties for responsive values */
+:root {
+    --logo-font-size: 40px;
+    --subtitle-font-size: 32px;
+    --subtitle-translate-x: -30%;
+    --header-height: 70px;
+    --container-padding: 20px;
+    --logo-hover-things: translateX(100px) translateY(50px) scale(4);
+}
+
+/* Header container */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+/* Logo styles - keeping original functionality */
+.header_logo {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+    position: relative;
+}
+
+.header_logo:hover {
+    transform: var(--logo-hover-things);
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 10;
+}
+
+.logo-char {
+    will-change: transform;
+    transition: color 0.2s;
+    height: 100%;
+}
+
+.logo_link {
+    font-size: var(--logo-font-size);
+    font-weight: 500;
+    color: #4f5a6a;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    font-family: "Bitcount Grid Double";
+    display: inline-block;
+}
+
+.logo_link:hover {
+    color: #000;
+}
+
+.logo_subtitle {
+    font-family: "Bitcount Grid Double";
+    font-weight: 500;
+    font-size: var(--subtitle-font-size);
+    letter-spacing: 1px;
+    color: #dc2f02;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.3s, transform 0.3s;
+    text-shadow: 0 2px 8px rgba(255,112,67,0.12);
+    white-space: nowrap;
+    min-width: max-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(var(--subtitle-translate-x));
+    top: 110%;
+}
+
+.subtitle-char {
+    display: inline-block;
+    color: #dc2f02;
+    will-change: transform;
+    font-family: "Bitcount Grid Double";
+    font-size: var(--subtitle-font-size);
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(255,112,67,0.12);
+    perspective: 300px;
+}
+
+/* Professional Navigation styles */
+.header_nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav_list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav_link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    padding: 10px 16px;
+    border-radius: 8px;
+    position: relative;
+    letter-spacing: 0.025em;
+    font-family: "Raleway", sans-serif;
+    background-color: #e9ebed;
+}
+
+.nav_link:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* Profile styles */
+.header_profile {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.profile_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.profile_btn:hover {
+    background-color: #f1f5f9;
+}
+
+.profile_icon {
+    width: 36px;
+    height: 36px;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.profile_btn:hover .profile_icon {
+    background-color: #cbd5e1;
+}
+
+.user_icon {
+    width: 20px;
+    height: 20px;
+    color: #64748b;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    :root {
+        --logo-font-size: 32px;
+        --subtitle-font-size: 20px;
+        --subtitle-translate-x: -35%;
+        --header-height: 60px;
+        --container-padding: 16px;
+        --logo-hover-things: translateX(80px) translateY(40px) scale(2);
+    }
+    
+    .nav_link {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+    
+    .header_profile {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --logo-font-size: 24px;
+        --subtitle-font-size: 18px;
+        --subtitle-translate-x: -40%;
+        --header-height: 52px;
+        --container-padding: 10px;
+        --logo-hover-things: translateX(150px) translateY(30px) scale(2.5);
+    }
+    
+    .nav_link {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+    
+    .header_profile {
+        margin-left: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --logo-font-size: 38px;
+        --subtitle-font-size: 16px;
+        --subtitle-translate-x: -45%;
+        --logo-hover-things: translateX(100px) translateY(20px) scale(1.9);
+    }
+    
+    .header_nav {
+        display: none !important;
+    }
+    
+    .header_container {
+        justify-content: space-between;
+    }
+    
+    .kebab-menu {
+        display: flex !important;
+        align-items: center;
+        margin-left: 8px;
+    }
+    
+    .kebab-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 8px;
+        color: #413f3f;
+        background-color: #dfe0e0;
+        transition: background 0.2s;
+    }
+    
+    .kebab-icon:hover {
+        background: #cbd5e1;
+    }
+    
+    .kebab-dropdown {
+        position: absolute;
+        top: 56px;
+        right: 10px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        min-width: 120px;
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+    }
+    
+    .kebab-dropdown.open {
+        display: flex;
+    }
+    
+    .kebab-dropdown .nav_link {
+        background: none;
+        color: #000;
+        border-radius: 0;
+        padding: 12px 16px;
+        font-size: 15px;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .kebab-dropdown .nav_link:last-child {
+        border-bottom: none;
+    }
+    
+    .kebab-dropdown .nav_link:hover {
+        background: #e9ebed;
+        color: #000;
+    }
+}
+
+@media (max-width: 375px) {
+    :root {
+        --logo-font-size: 20px;
+        --subtitle-font-size: 12px;
+        --subtitle-translate-x: -40%;
+        --header-height: 48px;
+        --container-padding: 8px;
+        --logo-hover-things: translateX(70px) translateY(10px) scale(1.5);
+    }
+
+}

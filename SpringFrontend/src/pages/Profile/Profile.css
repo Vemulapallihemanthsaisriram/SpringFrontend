@@ -1,0 +1,30 @@
+.MainProfile {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MainBox {
+    height: 70%;
+    width: 70%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px
+}
+.UserProfile {
+    position: relative;
+}
+.avatarcss {
+    position: absolute;
+    top: -100px;
+    right: 5%;
+}
+.UserDetails {
+    height: 100%;
+}
+.herocss {
+    height: 100%;
+}
+.contentcss {
+    height: 100%;
+}
